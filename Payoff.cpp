@@ -5,7 +5,7 @@ Payoff::Payoff(double strike, OptionType type)
     : m_strike{ strike }, m_type{ type } {}
 
 // Define the overloaded operator() to return the payoff (double) by input of spot price
-double Payoff::operator()(double spot)
+double Payoff::operator()(double spot) const
 {
     switch (m_type)
     {

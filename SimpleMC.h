@@ -3,11 +3,11 @@
 
 #include "Payoff.h"
 
-double SimpleMonteCarlo(const Payoff& payoff,
+double SimpleMonteCarlo(const IPayOff& payoff,
                         double expiry,
                         double spot,
                         double vol,
                         double r,
                         unsigned long trials);
 
-#endif // SimpleMC_H
+#endif

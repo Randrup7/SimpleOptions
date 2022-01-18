@@ -1,7 +1,7 @@
 #include "SimpleMC.h"
 #include <cmath>
 
-double SimpleMonteCarlo(const Payoff& payoff,
+double SimpleMonteCarlo(const IPayOff& payoff,
                         double expiry,
                         double spot,
                         double vol,

@@ -1,22 +1,38 @@
 #ifndef PAYOFF_H
 #define PAYOFF_H
 
-// Defining the Payoff class with forward declared constructor and member function.
-class Payoff
+// Defining interface Payoff class with virtual overloaded operator() and destructor
+class IPayOff
 {
 public:
-    enum OptionType
-    {
-        call,
-        put
-    };
-
-    Payoff(double strike, OptionType type);
-    double operator()(double spot) const;
-
-private:
-    double m_strike;
-    OptionType m_type;
+    IPayOff(){};
+    
+    virtual double operator()(double spot) const = 0; // pure virtual
+    virtual ~IPayOff(){}
 };
 
-#endif 
+// Define a derived payoff class for call options
+class PayOffCall : public IPayOff
+{
+private:
+    double m_strike;
+public:
+    PayOffCall(double strike);
+    
+    virtual double operator()(double spot) const;
+    virtual ~PayOffCall(){}
+};
+
+// Define a derived payoff class for put options
+class PayOffPut : public IPayOff
+{
+private:
+    double m_strike;
+public:
+    PayOffPut(double strike);
+
+    virtual double operator()(double spot) const;
+    virtual ~PayOffPut(){};
+};
+
+#endif

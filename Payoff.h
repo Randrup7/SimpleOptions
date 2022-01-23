@@ -23,8 +23,8 @@ private:
 public:
     PayOffCall(double strike);
     
-    virtual double operator()(double spot) const;
-    virtual IPayOff* clone() const;
+    double operator()(double spot) const override;
+    IPayOff* clone() const override;
 
     virtual ~PayOffCall(){}
 };
@@ -38,8 +38,8 @@ private:
 public:
     PayOffPut(double strike);
 
-    virtual double operator()(double spot) const;
-    virtual IPayOff* clone() const;
+    double operator()(double spot) const override;
+    IPayOff* clone() const override;
 
     virtual ~PayOffPut(){};
 };

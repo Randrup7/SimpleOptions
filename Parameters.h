@@ -49,9 +49,9 @@ private:
 public:
     ParametersConstant(double constant);
     
-    virtual IParametersInner* clone() const;
-    virtual double Integral(double time1, double time2) const;
-    virtual double IntegralSquare(double time1, double time2) const;
+    IParametersInner* clone() const override;
+    double Integral(double time1, double time2) const override;
+    double IntegralSquare(double time1, double time2) const override;
 };
 
 #endif

@@ -7,9 +7,13 @@ class IPayOff
 public:
     IPayOff(){};
     
-    virtual double operator()(double spot) const = 0; // pure virtual
+    virtual double operator()(double spot) const = 0;   // pure virtual
+    virtual IPayOff* clone() const = 0;                 // pure virtual
+
+
     virtual ~IPayOff(){}
 };
+
 
 // Define a derived payoff class for call options
 class PayOffCall : public IPayOff
@@ -20,8 +24,11 @@ public:
     PayOffCall(double strike);
     
     virtual double operator()(double spot) const;
+    virtual IPayOff* clone() const;
+
     virtual ~PayOffCall(){}
 };
+
 
 // Define a derived payoff class for put options
 class PayOffPut : public IPayOff
@@ -32,6 +39,8 @@ public:
     PayOffPut(double strike);
 
     virtual double operator()(double spot) const;
+    virtual IPayOff* clone() const;
+
     virtual ~PayOffPut(){};
 };
 

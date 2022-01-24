@@ -3,11 +3,13 @@
 
 #include "Option.h"
 #include "Parameters.h"
+#include "StatisticsMC.h"
 
-double OptionMonteCarlo(const Option& option,
+void OptionMonteCarlo(const Option& option,
                         double spot,
                         const Parameters& vol,
                         const Parameters& r,
-                        unsigned long trials);
+                        unsigned long trials,
+                        StatisticsMC& gatherer);
 
 #endif

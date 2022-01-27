@@ -1,6 +1,7 @@
 #include "OptionMC.h"
 #include "Option.h"
 #include "StatisticsMC.h"
+#include "ConvergenceTable.h"
 #include <iostream>
 #include <chrono>
 
@@ -15,19 +16,11 @@ int main()
     ParametersConstant rate(0.02);
 
     StatisticsMean gatherer{};
+    ConvergenceTable gatherer2{ gatherer, 2 };
 
-    OptionMonteCarlo(callOption, 100.0, vol, rate, 1000000, gatherer);
+    OptionMonteCarlo(callOption, 100.0, vol, rate, 1000000, gatherer2);
 
-    std::vector<std::vector<double>> Results = gatherer.GetResultsSoFar();
-
-    for (unsigned long i = 0; i < Results.size(); i++)
-    {
-        for (unsigned long j = 0; j < Results.size(); j++)
-        {
-            std::cout << Results[i][j] << " ";
-        }
-        std::cout << "\n";
-    }
+    std::vector<std::vector<double>> Results = gatherer2.GetResultsSoFar();
 
     auto end = std::chrono::steady_clock::now();
     std::chrono::duration<double> elapsed_seconds = end-start;

@@ -1,9 +1,9 @@
 #include "ConvergenceTable.h"
 
-ConvergenceTable::ConvergenceTable(const Wrapper<StatisticsMC>& Inner, unsigned long StoppingPoint = 2)
+ConvergenceTable::ConvergenceTable(const Wrapper<IStatisticsMC>& Inner, unsigned long StoppingPoint = 2)
     : m_Inner{ Inner }, m_StoppingPoint{ StoppingPoint } {}
 
-StatisticsMC* ConvergenceTable::clone() const
+IStatisticsMC* ConvergenceTable::clone() const
 {
     return new ConvergenceTable(*this);
 }

@@ -9,6 +9,7 @@
         "memory": "cpp",
         "ostream": "cpp",
         "streambuf": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "chrono": "cpp"
     }
 }

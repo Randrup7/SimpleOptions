@@ -3,7 +3,7 @@
 StatisticsMean::StatisticsMean()
     : m_PathsDone{0}, m_RunningSum{0.0} {}
 
-StatisticsMC* StatisticsMean::clone() const
+IStatisticsMC* StatisticsMean::clone() const
 {
     return new StatisticsMean(*this);
 }

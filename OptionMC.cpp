@@ -7,7 +7,7 @@ void OptionMonteCarlo(const Option& option,
                         const Parameters& vol,
                         const Parameters& r,
                         unsigned long trials,
-                        StatisticsMC& gatherer)
+                        IStatisticsMC& gatherer)
 {
     double expiry{ option.GetExpiry() };
     double variance{ vol.IntegralSquare(0.0, expiry) };

@@ -10,6 +10,6 @@ void OptionMonteCarlo(const Option& option,
                         const Parameters& vol,
                         const Parameters& r,
                         unsigned long trials,
-                        StatisticsMC& gatherer);
+                        IStatisticsMC& gatherer);
 
 #endif

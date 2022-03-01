@@ -1,5 +1,5 @@
 # SimpleOptions
-*** 
+***
 ## Description
 ---
 In this repository, I upload the files - .h files, .cpp files, and build settings - I use to follow the book 
@@ -65,9 +65,10 @@ Derived classes:
     * Has DumpOneResult function that takes a double as input, increases RunningSum by the input and increases PathsDone. The result of the MC trial is meant to be dumped in this class with this function.
     * GetResultsSoFar is a vector of double vectors variable. Returns the result(s) of the MC simulation (RunningSum / PathsDone).
 2. ConvergenceTable
+    * Has four member variables; 
+    * m_Inner which is a Wrapper of a IStatisticsMC object (we pass in a StatisticsMean object)
+    * m_ResultsSoFar is a vector of double vectors, m_StoppingPoint and m_PathsDone.
     * 
-
-
 
 ---
 ## Use of Classes
@@ -77,8 +78,9 @@ The OptionMonteCarlo function has the inputs:
 * const Parameters& vol,
 * const Parameters& r,
 * unsigned long trials,
-* StatisticsMC& gatherer
+* IStatisticsMC& gatherer
 
+The option parameter holds the payoff function inside the Option class as well as the expiry. The vol and rate parameters are both Parameter objects and derived classes of IParameters can thus implement different term structures of both volatility and interest rates. The gatherer of type IStatisticsMC is the object that stores and uses the results of the simulation. OptionMonteCarlo returns void.
 
 ## Ideas for Improvement
 ---
